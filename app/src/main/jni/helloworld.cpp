@@ -76,3 +76,26 @@ JNIEXPORT jintArray JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWo
     env->SetIntArrayRegion(javaArray, 0, 10, nativeArray);
     return javaArray;
 }
+
+JNIEXPORT jobject JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getDirectByteBufferFromJni
+        (JNIEnv *env, jobject obj){
+    jobject directBuffer = NULL;
+    unsigned char* buffer = (unsigned char*)malloc(128);
+    for(int i=0; i<128; i++){
+        buffer[i] = i;
+    }
+
+    directBuffer = env->NewDirectByteBuffer(buffer, 128);
+    return directBuffer;
+}
+
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_setDirectByteBufferToJni
+        (JNIEnv *env, jobject obj, jobject byteBuffer){
+    unsigned char* data;
+    int dataLen = env->GetDirectBufferCapacity(byteBuffer);
+    data = (unsigned char*)env->GetDirectBufferAddress(byteBuffer);
+    for(int i = 0; i<dataLen; i++){
+        LOGE("native data:%d", data[i]);
+    }
+
+}

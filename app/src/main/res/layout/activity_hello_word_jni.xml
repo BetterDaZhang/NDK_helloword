@@ -36,5 +36,15 @@
         android:layout_height="wrap_content"
         android:text="Get Region Array"
         />
+    <Button
+        android:id="@+id/bt_directbytebuffer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Direct Byte Buffer"/>
+    <Button
+        android:id="@+id/bt_directbytebuffer_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Direct Byte Buffer Set"/>
 
 </LinearLayout>

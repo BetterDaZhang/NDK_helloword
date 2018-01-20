@@ -47,6 +47,22 @@ JNIEXPORT jintArray JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWo
 JNIEXPORT jintArray JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getRegionArrayFromJin
         (JNIEnv *, jobject);
 
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    getDirectByteBufferFromJni
+ * Signature: ()Ljava/nio/ByteBuffer;
+ */
+JNIEXPORT jobject JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getDirectByteBufferFromJni
+        (JNIEnv *, jobject);
+
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    setDirectByteBufferToJni
+ * Signature: (Ljava/nio/ByteBuffer;)V
+ */
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_setDirectByteBufferToJni
+        (JNIEnv *, jobject, jobject);
+
 #ifdef __cplusplus
 }
 #endif
