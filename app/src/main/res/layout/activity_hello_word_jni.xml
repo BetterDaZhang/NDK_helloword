@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.zhangjunling.com.ndk_hellowork.MainActivity"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_hellojni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello Jni"/>
+    <Button
+        android:id="@+id/bt_operateString"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set String"/>
+    <Button
+        android:id="@+id/bt_array"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Elements Array"/>
+    <Button
+        android:id="@+id/bt_set_element_array"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Elements Array"/>
+    <Button
+        android:id="@+id/bt_get_region_array"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Region Array"
+        />
+
+</LinearLayout>
