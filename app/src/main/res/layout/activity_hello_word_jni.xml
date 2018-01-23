@@ -20,16 +20,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Set String"/>
-    <Button
-        android:id="@+id/bt_array"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Get Elements Array"/>
-    <Button
-        android:id="@+id/bt_set_element_array"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Set Elements Array"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_array"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Get Elements Array"/>
+        <Button
+            android:id="@+id/bt_set_element_array"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Set Elements Array"/>
+    </LinearLayout>
     <Button
         android:id="@+id/bt_get_region_array"
         android:layout_width="match_parent"
@@ -46,5 +52,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Direct Byte Buffer Set"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/bt_field"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Native Get Field"
+            />
+        <Button
+            android:id="@+id/bt_set_field"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Native Set Field"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/bt_static_field"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Native Get Static Field"/>
+        <Button
+            android:id="@+id/bt_static_set_field"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Native Set Static Field"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_call_field_method"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Native Call Field Method"/>
+        <Button
+            android:id="@+id/bt_call_static_method"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Native Call Static Method"/>
+    </LinearLayout>
 
 </LinearLayout>

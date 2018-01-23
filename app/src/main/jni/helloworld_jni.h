@@ -63,6 +63,54 @@ JNIEXPORT jobject JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWord
 JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_setDirectByteBufferToJni
         (JNIEnv *, jobject, jobject);
 
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    getJavaFieldString
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getJavaFieldString
+        (JNIEnv *, jobject);
+
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    setJavaFieldString
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_setJavaFieldString
+        (JNIEnv *, jobject);
+
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    getJavaStaticFieldString
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getJavaStaticFieldString
+        (JNIEnv *, jobject);
+
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    setJavaStaticFieldString
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_setJavaStaticFieldString
+        (JNIEnv *, jobject);
+
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    callFieldMethod
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_callFieldMethod
+        (JNIEnv *, jobject);
+
+/*
+ * Class:     example_zhangjunling_com_ndk_hellowork_HelloWordJniActivity
+ * Method:    callStaticMethod
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_callStaticMethod
+        (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

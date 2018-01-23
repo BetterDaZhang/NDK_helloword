@@ -6,11 +6,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
-public class HelloWordJniActivity extends AppCompatActivity {
+import example.zhangjunling.com.ndk_hellowork.base.NativeCallback;
+
+public class HelloWordJniActivity extends AppCompatActivity implements NativeCallback{
 
     private TextView mContentTextView;
     private Button mHelloJniButton;
@@ -20,6 +23,16 @@ public class HelloWordJniActivity extends AppCompatActivity {
     private Button mGetRegionArrayButton;
     private Button mDirectByteBufferButton;
     private Button mGetDirectByteBufferButton;
+    private Button mGetFieldButton;
+    private Button mSetFieldButton;
+    private Button mStaticFieldButton;
+    private Button mStaticSetFieldButton;
+    private Button mCallFieldMethodButton;
+    private Button mCallStaticMethodButton;
+
+    private String mJavaData;
+    public static String mStaticField = "Static Field";
+    public static String mSetStaticField;
 
     static {
         System.loadLibrary("helloworld");
@@ -38,6 +51,13 @@ public class HelloWordJniActivity extends AppCompatActivity {
         mGetRegionArrayButton = this.findViewById(R.id.bt_get_region_array);
         mDirectByteBufferButton = this.findViewById(R.id.bt_directbytebuffer);
         mGetDirectByteBufferButton = this.findViewById(R.id.bt_directbytebuffer_set);
+        mGetFieldButton = this.findViewById(R.id.bt_field);
+        mSetFieldButton = this.findViewById(R.id.bt_set_field);
+        mStaticFieldButton = this.findViewById(R.id.bt_static_field);
+        mStaticSetFieldButton = this.findViewById(R.id.bt_static_set_field);
+        mCallFieldMethodButton = this.findViewById(R.id.bt_call_field_method);
+        mCallStaticMethodButton = this.findViewById(R.id.bt_call_static_method);
+
 
         mHelloJniButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +116,46 @@ public class HelloWordJniActivity extends AppCompatActivity {
                 setDirectByteBufferToJni(ByteBuffer.allocateDirect(128).put(datas));
             }
         });
+        mGetFieldButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContentTextView.setText(getJavaFieldString());
+            }
+        });
+        mSetFieldButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setJavaFieldString();
+                mContentTextView.setText(mJavaData);
+            }
+        });
+        mStaticFieldButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContentTextView.setText(getJavaStaticFieldString());
+            }
+        });
+        mStaticSetFieldButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setJavaStaticFieldString();
+                mContentTextView.setText(mSetStaticField);
+            }
+        });
+        mCallFieldMethodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callFieldMethod();
+            }
+        });
+        mCallStaticMethodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callStaticMethod();
+            }
+        });
+
+        mJavaData = "I'm Android. I Want to go into native code.";
     }
 
     public native String getStringFromJni();
@@ -108,4 +168,27 @@ public class HelloWordJniActivity extends AppCompatActivity {
 
     public native ByteBuffer getDirectByteBufferFromJni();
     public native void setDirectByteBufferToJni(ByteBuffer data);
+
+    public native String getJavaFieldString();
+    public native void setJavaFieldString();
+
+    public native String getJavaStaticFieldString();
+    public native void setJavaStaticFieldString();
+
+    public native void callFieldMethod();
+    public native void callStaticMethod();
+
+    @Override
+    public void onNativeSuccess(final String success) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(HelloWordJniActivity.this,success,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public static void onNativeStaticCallback(final String success){
+        Log.d("zhangjunling", "data:" + success);
+    }
 }

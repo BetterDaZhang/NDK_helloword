@@ -3,9 +3,7 @@
 #include <string.h>
 #include "helloworld_jni.h"
 #include "util.h"
-#include <android/log.h>
-
-#define LOGE(format, ...)  __android_log_print(ANDROID_LOG_ERROR, "(>_<)", format, ##__VA_ARGS__)
+#include "log.h"
 
 JNIEXPORT jstring JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getStringFromJni
 (JNIEnv *env, jobject obj){
@@ -98,4 +96,56 @@ JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJni
         LOGE("native data:%d", data[i]);
     }
 
+}
+
+JNIEXPORT jstring JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getJavaFieldString
+        (JNIEnv *env, jobject obj){
+    jclass objClass = env->GetObjectClass(obj);
+    jfieldID objFieldId = env->GetFieldID(objClass, "mJavaData", "Ljava/lang/String;");
+    jstring javaData = (jstring) env->GetObjectField(obj, objFieldId);
+    jboolean isCopy;
+    LOGE("javaData:%s",env->GetStringUTFChars(javaData,&isCopy));
+
+    return javaData;
+}
+
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_setJavaFieldString
+        (JNIEnv *env, jobject obj){
+    jclass objClass = env->GetObjectClass(obj);
+    jfieldID objFieldId = env->GetFieldID(objClass, "mJavaData", "Ljava/lang/String;");
+
+    jstring nativeString = env->NewStringUTF("native create jstring.");
+    env->SetObjectField(obj, objFieldId, nativeString);
+}
+
+JNIEXPORT jstring JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_getJavaStaticFieldString
+        (JNIEnv *env, jobject obj){
+    jclass objStaticClass = env->GetObjectClass(obj);
+    jfieldID objStaticFieldId = env->GetStaticFieldID(objStaticClass, "mStaticField", "Ljava/lang/String;");
+    jstring javaStaticString = (jstring)env->GetStaticObjectField(objStaticClass, objStaticFieldId);
+    return javaStaticString;
+}
+
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_setJavaStaticFieldString
+        (JNIEnv *env, jobject obj){
+    jclass objStaticClass = env->GetObjectClass(obj);
+    jfieldID objStaticFieldId = env->GetStaticFieldID(objStaticClass, "mSetStaticField", "Ljava/lang/String;");
+
+    env->SetStaticObjectField(objStaticClass, objStaticFieldId, env->NewStringUTF("Java Static Set Field"));
+}
+
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_callFieldMethod
+        (JNIEnv *env, jobject obj){
+    jclass fieldMethodClass = env->GetObjectClass(obj);
+    jmethodID fieldMethodId = env->GetMethodID(fieldMethodClass, "onNativeSuccess", "(Ljava/lang/String;)V");
+
+    env->CallVoidMethod(obj, fieldMethodId, env->NewStringUTF("JiWenTing I Love You !"));
+}
+
+JNIEXPORT void JNICALL Java_example_zhangjunling_com_ndk_1hellowork_HelloWordJniActivity_callStaticMethod
+        (JNIEnv *env, jobject obj){
+    jclass staticMethodClass = env->GetObjectClass(obj);
+    jmethodID staticMethodId = env->GetStaticMethodID(staticMethodClass,"onNativeStaticCallback","(Ljava/lang/String;)V");
+
+    env->CallStaticVoidMethod(staticMethodClass, staticMethodId,env->NewStringUTF("Native Call Static Method. lalalala"));
 }

@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.zhangjunling.com.ndk_hellowork.MainActivity"
+    tools:context="example.zhangjunling.com.ndk_hellowork.ReferenceJniActivity"
     android:orientation="vertical">
     <Button
-        android:id="@+id/bt_view_hellojni"
+        android:id="@+id/bt_local_reference"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Hello Jni"/>
+        android:text="Local Reference"/>
     <Button
-        android:id="@+id/bt_view_exception"
+        android:id="@+id/bt_global_reference"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Excepton"/>
-    <Button
-        android:id="@+id/bt_view_reference"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Reference"/>
-
-
+        android:text="Global Reference"/>
 </LinearLayout>
