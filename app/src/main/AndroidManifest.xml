@@ -18,7 +18,10 @@
         </activity>
         <activity android:name=".HelloWordJniActivity" />
         <activity android:name=".ExceptionJniActivity" />
-        <activity android:name=".ReferenceJniActivity"></activity>
+        <activity android:name=".ReferenceJniActivity" />
+        <activity android:name=".DebugActivity" />
+        <activity android:name=".BionicActivity" />
+        <activity android:name=".ThreadActivity"></activity>
     </application>
 
 </manifest>

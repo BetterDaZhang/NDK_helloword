@@ -21,6 +21,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Reference"/>
-
+    <Button
+        android:id="@+id/bt_view_debug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Debug"/>
+    <Button
+        android:id="@+id/bt_view_bionic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Bionic"/>
+    <Button
+        android:id="@+id/bt_view_thread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Thread"/>
 
 </LinearLayout>
