@@ -42,3 +42,11 @@ LOCAL_LDLIBS := -llog
 LOCAL_CPPFLAGS += -std=c++11
 include $(BUILD_SHARED_LIBRARY)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE    := Echo
+LOCAL_SRC_FILES := Echo.cpp
+LOCAL_LDLIBS := -llog
+LOCAL_CPPFLAGS += -std=c++11
+include $(BUILD_SHARED_LIBRARY)
+
+

@@ -36,5 +36,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Thread"/>
+    <Button
+        android:id="@+id/bt_view_echo_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Echo Client"/>
+    <Button
+        android:id="@+id/bt_view_echo_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Echo Server"/>
+    <Button
+        android:id="@+id/bt_view_echo_local"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Echo Local"/>
 
 </LinearLayout>

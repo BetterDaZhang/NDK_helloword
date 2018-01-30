@@ -21,7 +21,10 @@
         <activity android:name=".ReferenceJniActivity" />
         <activity android:name=".DebugActivity" />
         <activity android:name=".BionicActivity" />
-        <activity android:name=".ThreadActivity"></activity>
+        <activity android:name=".ThreadActivity"/>
+        <activity android:name=".socket.EchoClientActivity"/>
+        <activity android:name=".socket.EchoServerActivity"/>
+        <activity android:name=".socket.LocalEchoActivity"/>
     </application>
 
 </manifest>
