@@ -14,6 +14,7 @@ public class ThreadActivity extends AppCompatActivity {
     private Button mStartThreadView;
     private TextView mMessageView;
 
+
     static{
         System.loadLibrary("nativethreads");
     }
@@ -23,7 +24,7 @@ public class ThreadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread);
         nativeInit();
-        initView();
+        initView();;
     }
 
     @Override
